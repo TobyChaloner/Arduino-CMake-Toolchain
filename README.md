@@ -54,7 +54,7 @@ cmake -D CMAKE_TOOLCHAIN_FILE=/path/to/Arduino-toolchain.cmake <CMAKE_SOURCE_DIR
 ```
 Note: As this is cross compilation, use any cross compilation compatible generator, like makefile generators (e.g. `-G "NMake Makefiles"` or `-G "MinGW Makefiles"` on Windows command prompt or `-G "Unix Makefiles"` on UNIX compatible prompts etc.).
 
-The above command generates a file **BoardOptions.cmake** in the build directory, that enumerates all the installed Arduino boards (installed through Arduino IDE or any other board manager) and their menu options. Select the Arduino board and any non-default options for the board from the BoardOptions.cmake (Or from cmake-gui), and then reinvoke the same command above.
+The above command initially throws an error, but does generate a file **BoardOptions.cmake** in the build directory, that enumerates all the installed Arduino boards (installed through Arduino IDE or any other board manager) and their menu options. Uncomment your Arduino board and any preferred non-default options for the board from the BoardOptions.cmake (Or from cmake-gui), and then reinvoke the same command above.  Note that the non-default options correspond to menu options seen in the Arduino IDE tools menu for your selected board.
 
 If you already have a customized BoardOptions.cmake file for the Arduino Board, you can use that instead, without waiting for the generation of BoardOptions.cmake, as given below.
 
@@ -140,7 +140,8 @@ Currently there is no support available for this within this toolchain. However 
 
 ## Known issues
 
-Many of the issues in the master branch have been fixed in release-1.1-dev branch. Although not tested to be fully stable, release-1.1-dev is stable enough to try out and report any futher issues before it gets merged into master.
+Whilst many of the issues in an older version of the master branch had been fixed in release-1.1-dev branch.
+This not tested, fairly stable, release-1.1-dev was never merged into master.  It is very out of date, but contains some valuable fixes.  These need a volunteer to migrate them to the master branch.
 
 Below are the list of known issues in the master branch.
 
@@ -175,6 +176,10 @@ Workaround: Install [ripgrep](https://github.com/BurntSushi/ripgrep). The toolch
 ## How it works
 
 This toolchain follows the build process described in [Arduino Build Process](https://arduino.github.io/arduino-cli/sketch-build-process/), and processes the JSON, platform.txt and boards.txt files correponding to the Arduino platform as specified in the documentation [Arduino IDE 1.5 3rd party Hardware specification](https://arduino.github.io/arduino-cli/platform-specification/).
+
+## Reference Information
+
+There is valuable information in [Arduino Platform specification](https://arduino.github.io/arduino-cli/platform-specification/).  This describes the platform.txt and boards.txt files.
 
 ## License
 
