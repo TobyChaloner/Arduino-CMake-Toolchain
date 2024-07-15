@@ -54,7 +54,7 @@ cmake -D CMAKE_TOOLCHAIN_FILE=/path/to/Arduino-toolchain.cmake <CMAKE_SOURCE_DIR
 ```
 Note: As this is cross compilation, use any cross compilation compatible generator, like makefile generators (e.g. `-G "NMake Makefiles"` or `-G "MinGW Makefiles"` on Windows command prompt or `-G "Unix Makefiles"` on UNIX compatible prompts etc.).
 
-The above command initially throws an error, but does generate a file **BoardOptions.cmake** in the build directory, that enumerates all the installed Arduino boards (installed through Arduino IDE or any other board manager) and their menu options. Uncomment your Arduino board and any preferred non-default options for the board from the BoardOptions.cmake (Or from cmake-gui), and then reinvoke the same command above.  Note that the non-default options correspond to menu options seen in the Arduino IDE tools menu for your selected board.
+The above command initially throws an error, but does generate a file **BoardOptions.cmake** in the build directory, that enumerates all the installed Arduino boards (installed through Arduino IDE or any other board manager) and their menu options. Uncomment your Arduino board and any preferred non-default options for the board from the BoardOptions.cmake (Or from cmake-gui), delete the file CMakeCache.txt that is in the build directory with BoardOptions.cmake, and then reinvoke the same command above.  Note that the non-default options correspond to menu options seen in the Arduino IDE tools menu for your selected board.
 
 If you already have a customized BoardOptions.cmake file for the Arduino Board, you can use that instead, without waiting for the generation of BoardOptions.cmake, as given below.
 
