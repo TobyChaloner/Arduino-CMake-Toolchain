@@ -75,7 +75,9 @@ function (SetupBoardToolchain)
 	# Anything read here could be overridden later while transfering properties
 	# from board.txt
 	properties_read("${ARDUINO_BOARD_RUNTIME_PLATFORM_PATH}/platform.txt" ard_global)
+	message(VERBOSE "Loading ${ARDUINO_BOARD_RUNTIME_PLATFORM_PATH}/platform.txt")
 	_board_get_platform_property("/local_path" _local_path)
+	message(VERBOSE "Looking for optional ${_local_path}/platform.local.txt")
 	if (EXISTS "${_local_path}/platform.local.txt")
 		properties_read("${_local_path}/platform.local.txt" ard_global)
 	endif()

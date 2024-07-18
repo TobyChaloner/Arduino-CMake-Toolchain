@@ -90,6 +90,7 @@ function(IndexArduinoBoards namespace)
 
 		platforms_get_property("ard_plat" "${pl_id}" "/path" pl_path)
 		math(EXPR boards_idx "${boards_idx} + 1")
+		message(VERBOSE "Loading ${pl_path}/boards.txt")
 		properties_read("${pl_path}/boards.txt" "ard_boards.${boards_idx}")
 		properties_set_parent_scope("ard_boards.${boards_idx}")
 
