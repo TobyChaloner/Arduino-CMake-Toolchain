@@ -176,6 +176,13 @@ Workaround: Install [ripgrep](https://github.com/BurntSushi/ripgrep). The toolch
 
 This toolchain follows the build process described in [Arduino Build Process](https://arduino.github.io/arduino-cli/sketch-build-process/), and processes the JSON, platform.txt and boards.txt files correponding to the Arduino platform as specified in the documentation [Arduino IDE 1.5 3rd party Hardware specification](https://arduino.github.io/arduino-cli/platform-specification/).
 
+### Under the hood
+To see greater information of where it is looking for information,
+add the log level parameter VERBOSE eg:
+```
+cmake  --log-level VERBOSE -D CMAKE_TOOLCHAIN_FILE=/path/to/Arduino-toolchain.cmake <CMAKE_SOURCE_DIR>
+```
+
 ## License
 
 MIT © 2020 [Arduino-CMake-Toolchain](https://github.com/a9183756-gh/Arduino-CMake-Toolchain/blob/master/LICENSE.md)
