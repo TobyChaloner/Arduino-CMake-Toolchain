@@ -307,8 +307,8 @@ function(IndexArduinoBoards namespace)
 
 		endforeach()
 
-		# list(JOIN _board_identifier_list ", " _print_list)
-		# message(STATUS "Found boards: [${_print_list}]")
+		list(JOIN _board_identifier_list ", " _print_list)
+		message(VERBOSE "Found boards: [${_print_list}]")
 		list(APPEND "${namespace}/list" ${_board_identifier_list})
 
 	endforeach()

@@ -117,7 +117,7 @@ function(InitializeArduinoPackagePathList)
 				"${_version}. Please install newer version!")
 		endif()
 	endif()
-	# message("ARDUINO_INSTALL_PATH:${ARDUINO_INSTALL_PATH}")
+	message(VERBOSE "ARDUINO_INSTALL_PATH:${ARDUINO_INSTALL_PATH}")
 
 	# Search for Arduino library path
 	find_path(ARDUINO_PACKAGE_PATH
@@ -127,7 +127,7 @@ function(InitializeArduinoPackagePathList)
 			NO_DEFAULT_PATH
 			NO_CMAKE_FIND_ROOT_PATH
 			DOC "Path to Arduino platform packages")
-	# message("ARDUINO_PACKAGE_PATH:${ARDUINO_PACKAGE_PATH}")
+	message(VERBOSE "ARDUINO_PACKAGE_PATH:${ARDUINO_PACKAGE_PATH}")
 
 	# Search for sketchbook path
 	find_file(ARDUINO_PREFERENCE_FILE
@@ -136,7 +136,7 @@ function(InitializeArduinoPackagePathList)
 			HINTS ${sketchbook_search_paths}
 			NO_DEFAULT_PATH
 			NO_CMAKE_FIND_ROOT_PATH)
-	# message("ARDUINO_PREFERENCE_FILE:${ARDUINO_PREFERENCE_FILE}")
+	message(VERBOSE "ARDUINO_PREFERENCE_FILE:${ARDUINO_PREFERENCE_FILE}")
 	if (ARDUINO_PREFERENCE_FILE)
 		file(STRINGS "${ARDUINO_PREFERENCE_FILE}" preferences)
 		list_filter_include_regex(preferences "sketchbook.path=.*")
@@ -147,6 +147,6 @@ function(InitializeArduinoPackagePathList)
 				CACHE PATH "Path to Arduino Sketchbook")
 		endif()
 	endif()
-	# message("ARDUINO_SKETCHBOOK_PATH:${ARDUINO_SKETCHBOOK_PATH}")
+	message(VERBOSE "ARDUINO_SKETCHBOOK_PATH:${ARDUINO_SKETCHBOOK_PATH}")
 
 endfunction()
